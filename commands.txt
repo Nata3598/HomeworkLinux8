@@ -1,0 +1,56 @@
+
+nano id.sh
+#!/bin/bash
+
+for ((i=0; i<3; i++))
+do
+  id
+done
+
+
+chmod +x id.sh
+
+
+
+nano while.sh
+
+#!/bin/bash
+
+i=0
+while [ $i -le 100 ]
+do
+  echo "$i"
+  let i=i+2
+done
+
+chmod +x while.sh
+
+
+
+alias ll="ls -l"
+# ls -l $(pwd) | tail -n +2 | cut -b -11 | sort | uniq
+
+ll $(pwd) | tail -n +2 | cut -b -11 | sort | uniq
+-rw-r--r-- 
+-rwxr-xr-x
+
+
+
+nano clear.sh
+#!/bin/bash
+
+dir=$1
+
+if [ -d $dir ]
+then
+  echo "Directory exists. Clear"
+  cd $dir
+  rm -rf *.backup *.bak *.tmp
+  exit 1
+else
+  echo "ERROR: Directory does not exist"
+  exit 1
+fi
+
+
+chmod +x clear.sh
